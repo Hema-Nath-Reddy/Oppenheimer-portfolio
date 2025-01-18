@@ -7,12 +7,13 @@ import Project from "./pages/Project";
 import Layout from "./Layout";
 import { useEffect } from "react";
 import Certifications from "./pages/Certifications";
-import Something from "./pages/Something";
+import ErrorPage from "./pages/ErrorPage";
 
 const routes = [
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
