@@ -159,7 +159,7 @@ h1 span {
   gap: 1vw;
 }
 
-p {
+.about p {
   font-family: monda;
   font-size: 1.25vw;
   text-align: center;
@@ -280,14 +280,65 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
 }
-textarea{
+textarea {
   max-height: 30vh;
 }
 textarea::-webkit-scrollbar {
   display: none;
 }
-::selection{
+::selection {
   background-color: #45160d;
-  color: rgba(225,157,68,255);
-  text-shadow: 0 0 0px rgba(225,157,68,255);
+  color: rgba(225, 157, 68, 255);
+  text-shadow: 0 0 0px rgba(225, 157, 68, 255);
+}
+.certificate {
+  height: 60vh;
+  aspect-ratio: 20/16;
+  position: relative;
+  z-index: 4;
+  background-color: black;
+}
+.certificate img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5vw;
+}
+.certificate .inner {
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, #442512 60%);
+  box-shadow: 0 -40px 6px rgba(37, 38, 24, 1);
+  text-align: left;
+  padding-left: 1vw;
+  padding-bottom: 1vw;
+}
+h4 {
+  font-size: 1.5vw;
+  font-weight: bold;
+  font-family: monda;
+  color: #d95622;
+
+  text-shadow: 0 0 5px #d95622;
+}
+.inner .content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 45%;
+  padding: 1vw;
+}
+.content p {
+  margin-top: 1vw;
+  font-family: shanti;
+}
+.content button {
+  width: 50%;
 }

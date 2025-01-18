@@ -6,6 +6,8 @@ import Skills from "./pages/Skills";
 import Project from "./pages/Project";
 import Layout from "./Layout";
 import { useEffect } from "react";
+import Certifications from "./pages/Certifications";
+import Something from "./pages/Something";
 
 const routes = [
   {
@@ -23,6 +25,10 @@ const routes = [
       {
         path: "/projects",
         element: <Project />,
+      },
+      {
+        path: "/certifications",
+        element: <Certifications />,
       },
       {
         path: "/contact-me",

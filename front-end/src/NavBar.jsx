@@ -105,6 +105,7 @@ const NavBar = () => {
           <Link to="/">About Me</Link>
           <Link to="/skills">Skills</Link>
           <Link to="/projects">Projects</Link>
+          <Link to="/certifications">Certifications</Link>
           <Link to="/contact-me">Contact Me</Link>
         </div>
       </nav>
