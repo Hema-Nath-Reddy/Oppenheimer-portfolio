@@ -342,3 +342,15 @@ h4 {
 .content button {
   width: 50%;
 }
+.sound {
+  position: absolute;
+  z-index: 999;
+  border-radius: 50%;
+  border: none;
+  height: min-content;
+  width: min-content;
+  background-color: transparent;
+  bottom: 0;
+  right: 0;
+  fill: #d95622;
+}
