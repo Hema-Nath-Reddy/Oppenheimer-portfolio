@@ -370,6 +370,9 @@ h4 {
   right: 1%;
   fill: #ffffc7;
 }
+.sound svg {
+  cursor: pointer;
+}
 
 .innerCert {
   display: flex;
