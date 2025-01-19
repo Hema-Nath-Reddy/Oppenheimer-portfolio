@@ -8,7 +8,6 @@ const Certificates = ({ img, title, content }) => {
         <div className="content">
           <h4>{title}</h4>
           <p>{content}</p>
-          <button className="btn"> know more</button>
         </div>
       </div>
     </div>

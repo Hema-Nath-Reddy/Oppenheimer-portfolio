@@ -93,14 +93,28 @@ nav {
   flex-direction: column;
   z-index: 99;
 }
+@font-face {
+  font-family: "Gotham-Bold";
+  src: url("./assets/Gotham-Bold.otf") format("opentype"); /* Or 'truetype' if it's .ttf */
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "futur";
+  src: url("./assets/futur.ttf") format("truetype"); /* Or 'truetype' if it's .ttf */
+  font-weight: bold;
+  font-style: normal;
+}
 .name h1 {
   width: 100%;
   font-family: montserrat;
-  font-weight: 600;
+  font-family: "Gotham-Bold", sans-serif;
+  /* font-family: "futur", sans-serif; */
   font-size: 5vw;
-  color: /* #d95622 */ white;
+
+  color: white;
   letter-spacing: 2vw;
-  text-shadow: 0 0 5px /* #d95622 */ white;
+  text-shadow: 0 0 5px white;
 }
 nav .links {
   width: 60%;
@@ -137,7 +151,6 @@ nav .links {
   width: 100%;
 }
 .containers {
-  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -147,6 +160,9 @@ nav .links {
   color: white;
   position: relative;
   z-index: 9;
+}
+.containers:not(.cert) {
+  width: 100vw;
 }
 h1 {
   font-size: 2.5vw;
@@ -314,7 +330,7 @@ textarea::-webkit-scrollbar {
   left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to bottom, transparent, #442512 60%);
+  background: linear-gradient(to bottom, transparent, #442512 70%);
   box-shadow: 0 -40px 6px rgba(37, 38, 24, 1);
   text-align: left;
   padding-left: 1vw;
@@ -332,7 +348,7 @@ h4 {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 45%;
+  height: 32%;
   padding: 1vw;
 }
 .content p {
@@ -350,7 +366,55 @@ h4 {
   height: min-content;
   width: min-content;
   background-color: transparent;
-  bottom: 0;
-  right: 0;
-  fill: #d95622;
+  bottom: 1%;
+  right: 1%;
+  fill: #ffffc7;
+}
+
+.innerCert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 7vw;
+  transition: all 0.5s ease;
+}
+.more {
+  font-family: monda;
+  font-size: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 50%;
+  height: 15vh;
+  aspect-ratio: 1/1;
+  border: #ffffc7;
+  color: #ffffc7;
+  background-color: #3b302e;
+  background-color: blur(5px);
+  position: absolute;
+  z-index: 9999;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.left {
+  left: 3%;
+}
+.right {
+  right: 3%;
+}
+.more:active {
+  background-color: #ffffc7;
+  color: black;
+}
+.more:active svg {
+  fill: black;
+}
+.more svg {
+  margin-top: -1vw;
+  fill: #ffffc7;
+}
+.left svg {
+  rotate: 180deg;
 }

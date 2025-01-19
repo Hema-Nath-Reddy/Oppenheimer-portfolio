@@ -101,7 +101,7 @@ const NavBar = () => {
       <audio src={audio} loop></audio>
       <nav>
         <div className="name">
-          <h1>Hema Nath Reddy Y</h1>
+          <h1>HEMA NATH REDDY Y</h1>
         </div>
         <div className="links">
           <Link to="/">About Me</Link>
