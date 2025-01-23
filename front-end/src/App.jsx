@@ -8,6 +8,7 @@ import Layout from "./Layout";
 import { useEffect } from "react";
 import Certifications from "./pages/Certifications";
 import ErrorPage from "./pages/ErrorPage";
+import Experience from "./pages/Experience";
 
 const routes = [
   {
@@ -30,6 +31,10 @@ const routes = [
       {
         path: "/certifications",
         element: <Certifications />,
+      },
+      {
+        path: "/experience",
+        element: <Experience />,
       },
       {
         path: "/contact-me",

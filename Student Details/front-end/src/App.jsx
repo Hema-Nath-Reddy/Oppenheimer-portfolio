@@ -8,17 +8,16 @@ function App() {
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [data, setData] = useState([]);
-  
-  const handleSubmit = (e) => {
+
+  const handleSubmit = () => {
     if (name === "" || number === "" || age === "" || gender === "") {
-      e.preventDefault();
+      alert("Please fill all the fields.");
       return;
     }
     setName("");
     setNumber("");
     setAge("");
     setGender("");
-
     setData([...data, { name, number, age, gender }]);
   };
   const handleDelete = (index) => {
@@ -52,8 +51,6 @@ function App() {
           type="number"
           name="age"
           id="age"
-          min={16}
-          max={25}
           placeholder="Enter age"
           autoComplete="tel"
           value={age}
@@ -63,8 +60,8 @@ function App() {
           <option value="" disabled>
             Select Gender
           </option>
-          <option value="M">Male</option>
-          <option value="F">Female</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
         </select>
 
         <button onClick={handleSubmit}>Add</button>
