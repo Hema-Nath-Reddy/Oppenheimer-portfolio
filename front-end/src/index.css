@@ -235,7 +235,7 @@ input[type="number"]::-webkit-outer-spin-button {
 textarea {
   max-height: 30vh;
 }
-textarea::-webkit-scrollbar {
+-webkit-scrollbar {
   display: none;
 }
 ::selection {
@@ -365,6 +365,57 @@ h4 {
 .left svg {
   rotate: 180deg;
 }
-.skills{
-  flex-direction: row;
+.skills .inner {
+  height: 50vh;
+  width: 90%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  place-items: center;
+}
+.skills .inner div {
+  width: 50%;
+  border-radius: 0.5vw;
+  aspect-ratio: 16/9;
+  background: radial-gradient(
+    circle,
+    rgba(229, 203, 158, 0.6) 0%,
+    rgba(167, 142, 102, 0.6) 100%
+  );
+  margin: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills .inner div .tooltip {
+  position: absolute;
+  font-family: monda;
+  bottom: 50%;
+  opacity: 0;
+  transform: translateY(50%);
+  width: max-content;
+  transition: all 0.3s ease;
+}
+.skills .inner div::before {
+  height: 200%;
+  width: 2vw;
+  background-color: rgba(0, 0, 0, 0.258);
+  content: "";
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  transition: all 0.5s ease;
+  rotate: 45deg;
+}
+.skills .inner div:hover::before {
+  bottom: -90%;
+  left: 90%;
+}
+.skills .inner div:hover .tooltip {
+  bottom: 100%;
+  transform: none;
+  opacity: 1;
 }
