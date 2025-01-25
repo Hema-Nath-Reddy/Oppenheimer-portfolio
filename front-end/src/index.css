@@ -374,7 +374,7 @@ h4 {
   place-items: center;
 }
 .skills .inner div {
-  width: 50%;
+  width: 75%;
   border-radius: 0.5vw;
   aspect-ratio: 16/9;
   background: radial-gradient(
@@ -386,53 +386,46 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column-reverse;
   position: relative;
   overflow: hidden;
 }
-
-.skills .inner div .tooltip {
-  position: absolute;
+.skills .inner div p {
+  color: #442512;
   font-family: monda;
-  bottom: 50%;
-  opacity: 0;
-  transform: translateY(50%);
-  width: max-content;
-  transition: all 0.3s ease;
+  font-size: 0.75vw;
+  font-weight: bold;
+  margin-top: 0.5vw;
 }
+
 .skills .inner div::before {
   height: 200%;
   width: 2vw;
-  background-color: rgba(0, 0, 0, 0.258);
+  background-color: rgba(0, 0, 0, 0.3);
   content: "";
   position: absolute;
   bottom: 0%;
   left: 0%;
-  transition: all 0.5s ease;
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   rotate: 45deg;
 }
 .skills .inner div:hover::before {
   bottom: -90%;
   left: 90%;
 }
-.skills .inner div:hover .tooltip {
-  bottom: 100%;
-  transform: none;
-  opacity: 1;
+
+.kotlin,
+.cpp,
+.csharp {
+  width: 2.5vw;
 }
-.react svg {
-  animation: rotate 5s infinite linear;
-}
-@keyframes rotate {
-  0% {
-    rotate: 0deg;
-  }
-  100% {
-    rotate: 360deg;
-  }
+.php,
+.data-structures {
+  width: 3.5vw;
 }
 
-.skills .inner div:not(.react):hover svg {
-  animation: float 3s ease-in-out infinite;
+.skills .inner div:hover svg {
+  animation: float 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
   transform: translateY(5%);
 }
 @keyframes float {
@@ -448,9 +441,16 @@ h4 {
     transform: translateY(0);
   }
 }
-svg path {
-  transition: all 0.3s ease;
+svg * {
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.react:hover svg  {
-  fill: #00d8ff;
+.box {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.box.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
