@@ -162,6 +162,48 @@ svg {
   flex-direction: column;
   width: 40%;
 }
+.input-wrapper {
+  width: 100%;
+  position: relative;
+}
+.ttp {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2%;
+}
+.ttp svg {
+  width: 1.5vw;
+}
+
+.ttp:before {
+  width: 8rem;
+  content: attr(aria-label);
+  position: absolute;
+  top: 50%;
+  left: 120%;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  background-color: #333;
+  color: #fff;
+  border-radius: 0.25rem;
+  font-family: monda;
+  background-color: #a78e66;
+  color: #090507;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.ttp:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
+
 input,
 textarea {
   width: 100%;
@@ -234,6 +276,32 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 textarea {
   max-height: 30vh;
+}
+.success {
+  width: 100%;
+  background-color: #ffffc7;
+  text-align: center;
+  color: black;
+  padding: 0.5vw 0.25vw;
+  font-family: monda;
+  border-radius: 0.5vw;
+  position: relative;
+}
+.loading {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: progess 5s linear infinite;
+  background-color: black;
+  height: 2px;
+}
+@keyframes progess {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
 -webkit-scrollbar {
   display: none;
@@ -413,7 +481,7 @@ h4 {
   bottom: -90%;
   left: 90%;
 }
-.skills .inner div:hover{
+.skills .inner div:hover {
   scale: 1.1;
 }
 .kotlin,
@@ -425,9 +493,6 @@ h4 {
 .data-structures {
   width: 3.5vw;
 }
-
-
-
 svg * {
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
