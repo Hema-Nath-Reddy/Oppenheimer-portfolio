@@ -1,32 +1,34 @@
 import React, { useState } from "react";
 
 const Skills = () => {
+  const [hover, isHover] = useState(false);
   return (
     <div className="containers skills">
       <div className="inner">
-        <div>
+        <div
+          onMouseEnter={() => isHover(true)}
+          onMouseLeave={() => isHover(false)}
+        >
           <span className="tooltip">HTML</span>
           <svg
             className="html"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
-            fill="#000000"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
-              <title>file_type_html</title>
               <polygon
                 points="5.902 27.201 3.655 2 28.345 2 26.095 27.197 15.985 30 5.902 27.201"
-                style={{ fill: "#e44f26" }}
+                fill={hover ? "#344f26" : "#000000"}
               ></polygon>
               <polygon
                 points="16 27.858 24.17 25.593 26.092 4.061 16 4.061 16 27.858"
-                style={{ fill: "#f1662a" }}
+                fill={hover?"#f1662a":"#000000"}
               ></polygon>
               <polygon
                 points="16 13.407 11.91 13.407 11.628 10.242 16 10.242 16 7.151 15.989 7.151 8.25 7.151 8.324 7.981 9.083 16.498 16 16.498 16 13.407"
@@ -46,7 +48,6 @@ const Skills = () => {
               ></polygon>
             </g>
           </svg>
-          
         </div>
         <div>
           <span className="tooltip">CSS</span>
@@ -56,11 +57,11 @@ const Skills = () => {
             xmlns="http://www.w3.org/2000/svg"
             className="css"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <path d="M6 28L4 3H28L26 28L16 31L6 28Z" fill="#1172B8"></path>
@@ -80,11 +81,11 @@ const Skills = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="#000000"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <title>file_type_js_official</title>
@@ -146,15 +147,15 @@ const Skills = () => {
             viewBox="0 -2 256 256"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
             preserveAspectRatio="xMidYMid"
             fill="#000000"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <path
@@ -174,14 +175,14 @@ const Skills = () => {
             className="mongod"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
             fill="#000000"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <defs>
@@ -194,15 +195,15 @@ const Skills = () => {
                   gradientTransform="matrix(-0.977, -0.323, -0.29, 0.877, -375.944, -928.287)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0.231" stop-color="#999875"></stop>
-                  <stop offset="0.563" stop-color="#9b9977"></stop>
-                  <stop offset="0.683" stop-color="#a09f7e"></stop>
-                  <stop offset="0.768" stop-color="#a9a889"></stop>
-                  <stop offset="0.837" stop-color="#b7b69a"></stop>
-                  <stop offset="0.896" stop-color="#c9c7b0"></stop>
-                  <stop offset="0.948" stop-color="#deddcb"></stop>
-                  <stop offset="0.994" stop-color="#f8f6eb"></stop>
-                  <stop offset="1" stop-color="#fbf9ef"></stop>
+                  <stop offset="0.231" stopColor="#999875"></stop>
+                  <stop offset="0.563" stopColor="#9b9977"></stop>
+                  <stop offset="0.683" stopColor="#a09f7e"></stop>
+                  <stop offset="0.768" stopColor="#a9a889"></stop>
+                  <stop offset="0.837" stopColor="#b7b69a"></stop>
+                  <stop offset="0.896" stopColor="#c9c7b0"></stop>
+                  <stop offset="0.948" stopColor="#deddcb"></stop>
+                  <stop offset="0.994" stopColor="#f8f6eb"></stop>
+                  <stop offset="1" stopColor="#fbf9ef"></stop>
                 </linearGradient>
                 <linearGradient
                   id="b"
@@ -213,8 +214,8 @@ const Skills = () => {
                   gradientTransform="matrix(-0.977, -0.323, -0.29, 0.877, -375.944, -928.287)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0" stop-color="#48a547"></stop>
-                  <stop offset="1" stop-color="#3f9143"></stop>
+                  <stop offset="0" stopColor="#48a547"></stop>
+                  <stop offset="1" stopColor="#3f9143"></stop>
                 </linearGradient>
                 <linearGradient
                   id="c"
@@ -225,10 +226,10 @@ const Skills = () => {
                   gradientTransform="matrix(-0.977, -0.323, -0.29, 0.877, -375.944, -928.287)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0" stop-color="#41a247"></stop>
-                  <stop offset="0.352" stop-color="#4ba74b"></stop>
-                  <stop offset="0.956" stop-color="#67b554"></stop>
-                  <stop offset="1" stop-color="#69b655"></stop>
+                  <stop offset="0" stopColor="#41a247"></stop>
+                  <stop offset="0.352" stopColor="#4ba74b"></stop>
+                  <stop offset="0.956" stopColor="#67b554"></stop>
+                  <stop offset="1" stopColor="#69b655"></stop>
                 </linearGradient>
               </defs>
               <title>file_type_mongo</title>
@@ -256,11 +257,11 @@ const Skills = () => {
             role="img"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <path d="M24 18.588a1.529 1.529 0 0 1-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 0 1-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 0 1 1.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 0 1 1.788-.668L21.708 7.9l-2.522 3.283a.666.666 0 0 0 0 .994l4.804 6.412zM.002 11.576l.42-2.075c1.154-4.103 5.858-5.81 9.094-3.27 1.895 1.489 2.368 3.597 2.275 5.973H1.116C.943 16.447 4.005 19.009 7.92 17.7a4.078 4.078 0 0 0 2.582-2.876c.207-.666.548-.78 1.174-.588a5.417 5.417 0 0 1-2.589 3.957 6.272 6.272 0 0 1-7.306-.933 6.575 6.575 0 0 1-1.64-3.858c0-.235-.08-.455-.134-.666A88.33 88.33 0 0 1 0 11.577zm1.127-.286h9.654c-.06-3.076-2.001-5.258-4.59-5.278-2.882-.04-4.944 2.094-5.071 5.264z"></path>
@@ -275,11 +276,11 @@ const Skills = () => {
             xmlns="http://www.w3.org/2000/svg"
             className="node"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <path
@@ -293,23 +294,20 @@ const Skills = () => {
             </g>
           </svg>
         </div>
-        <div>
+        <div className="react">
           <span className="tooltip">React js</span>
           <svg
-            className="react"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
             aria-hidden="true"
             role="img"
             width="35.93"
             height="32"
             preserveAspectRatio="xMidYMid meet"
             viewBox="0 0 256 228"
+            fill="#000000"
           >
-            <path
-              fill="#00D8FF"
-              d="M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621c6.238-30.281 2.16-54.676-11.769-62.708c-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848a155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233C50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165a167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266c13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923a168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586c13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488c29.348-9.723 48.443-25.443 48.443-41.52c0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345c-3.24-10.257-7.612-21.163-12.963-32.432c5.106-11 9.31-21.767 12.459-31.957c2.619.758 5.16 1.557 7.61 2.4c23.69 8.156 38.14 20.213 38.14 29.504c0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787c-1.524 8.219-4.59 13.698-8.382 15.893c-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246c12.376-1.098 24.068-2.894 34.671-5.345a134.17 134.17 0 0 1 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675c-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994c7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863c-6.35-5.437-9.555-10.836-9.555-15.216c0-9.322 13.897-21.212 37.076-29.293c2.813-.98 5.757-1.905 8.812-2.773c3.204 10.42 7.406 21.315 12.477 32.332c-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789c8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988c-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08c-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152c7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793c2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433c4.902.192 9.899.29 14.978.29c5.218 0 10.376-.117 15.453-.343c-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52c-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026a347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815a329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627a310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695a358.489 358.489 0 0 1 11.036 20.54a329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026c-.344 1.668-.73 3.367-1.15 5.09c-10.622-2.452-22.155-4.275-34.23-5.408c-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86s-22.86-10.235-22.86-22.86s10.235-22.86 22.86-22.86Z"
-            ></path>
+            <path d="M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621c6.238-30.281 2.16-54.676-11.769-62.708c-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848a155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233C50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165a167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266c13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923a168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586c13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488c29.348-9.723 48.443-25.443 48.443-41.52c0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345c-3.24-10.257-7.612-21.163-12.963-32.432c5.106-11 9.31-21.767 12.459-31.957c2.619.758 5.16 1.557 7.61 2.4c23.69 8.156 38.14 20.213 38.14 29.504c0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787c-1.524 8.219-4.59 13.698-8.382 15.893c-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246c12.376-1.098 24.068-2.894 34.671-5.345a134.17 134.17 0 0 1 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675c-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994c7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863c-6.35-5.437-9.555-10.836-9.555-15.216c0-9.322 13.897-21.212 37.076-29.293c2.813-.98 5.757-1.905 8.812-2.773c3.204 10.42 7.406 21.315 12.477 32.332c-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789c8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988c-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08c-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152c7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793c2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433c4.902.192 9.899.29 14.978.29c5.218 0 10.376-.117 15.453-.343c-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52c-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026a347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815a329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627a310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695a358.489 358.489 0 0 1 11.036 20.54a329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026c-.344 1.668-.73 3.367-1.15 5.09c-10.622-2.452-22.155-4.275-34.23-5.408c-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86s-22.86-10.235-22.86-22.86s10.235-22.86 22.86-22.86Z"></path>
           </svg>
         </div>
         <div>
@@ -380,11 +378,11 @@ const Skills = () => {
             xmlns="http://www.w3.org/2000/svg"
             className="java"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <path
@@ -430,22 +428,22 @@ const Skills = () => {
             xmlns="http://www.w3.org/2000/svg"
             className="python"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M13.0164 2C10.8193 2 9.03825 3.72453 9.03825 5.85185V8.51852H15.9235V9.25926H5.97814C3.78107 9.25926 2 10.9838 2 13.1111L2 18.8889C2 21.0162 3.78107 22.7407 5.97814 22.7407H8.27322V19.4815C8.27322 17.3542 10.0543 15.6296 12.2514 15.6296H19.5956C21.4547 15.6296 22.9617 14.1704 22.9617 12.3704V5.85185C22.9617 3.72453 21.1807 2 18.9836 2H13.0164ZM12.0984 6.74074C12.8589 6.74074 13.4754 6.14378 13.4754 5.40741C13.4754 4.67103 12.8589 4.07407 12.0984 4.07407C11.3378 4.07407 10.7213 4.67103 10.7213 5.40741C10.7213 6.14378 11.3378 6.74074 12.0984 6.74074Z"
                 fill="url(#paint0_linear_87_8204)"
               ></path>
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M18.9834 30C21.1805 30 22.9616 28.2755 22.9616 26.1482V23.4815L16.0763 23.4815L16.0763 22.7408L26.0217 22.7408C28.2188 22.7408 29.9998 21.0162 29.9998 18.8889V13.1111C29.9998 10.9838 28.2188 9.25928 26.0217 9.25928L23.7266 9.25928V12.5185C23.7266 14.6459 21.9455 16.3704 19.7485 16.3704L12.4042 16.3704C10.5451 16.3704 9.03809 17.8296 9.03809 19.6296L9.03809 26.1482C9.03809 28.2755 10.8192 30 13.0162 30H18.9834ZM19.9015 25.2593C19.1409 25.2593 18.5244 25.8562 18.5244 26.5926C18.5244 27.329 19.1409 27.9259 19.9015 27.9259C20.662 27.9259 21.2785 27.329 21.2785 26.5926C21.2785 25.8562 20.662 25.2593 19.9015 25.2593Z"
                 fill="url(#paint1_linear_87_8204)"
               ></path>
@@ -458,8 +456,8 @@ const Skills = () => {
                   y2="22.7407"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#327EBD"></stop>
-                  <stop offset="1" stop-color="#1565A7"></stop>
+                  <stop stopColor="#327EBD"></stop>
+                  <stop offset="1" stopColor="#1565A7"></stop>
                 </linearGradient>
                 <linearGradient
                   id="paint1_linear_87_8204"
@@ -469,8 +467,8 @@ const Skills = () => {
                   y2="30"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#FFDA4B"></stop>
-                  <stop offset="1" stop-color="#F9C600"></stop>
+                  <stop stopColor="#FFDA4B"></stop>
+                  <stop offset="1" stopColor="#F9C600"></stop>
                 </linearGradient>
               </defs>
             </g>
@@ -482,15 +480,15 @@ const Skills = () => {
             viewBox="-3 0 48 48"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
             fill="#000000"
             className="android"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <title>Android-color</title> <desc>Created with Sketch.</desc>
@@ -498,9 +496,9 @@ const Skills = () => {
               <g
                 id="Icons"
                 stroke="none"
-                stroke-width="1"
+                strokeWidth="1"
                 fill="none"
-                fill-rule="evenodd"
+                fillRule="evenodd"
               >
                 <g
                   id="Color-"
@@ -522,16 +520,16 @@ const Skills = () => {
             viewBox="0 0 256 256"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
             preserveAspectRatio="xMidYMid"
             fill="#000000"
             className="kotlin"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
               <defs>
@@ -542,11 +540,11 @@ const Skills = () => {
                   y2="52.3813953%"
                   id="linearGradient-1"
                 >
-                  <stop stop-color="#0095D5" offset="9.677%"></stop>
-                  <stop stop-color="#238AD9" offset="30.07%"></stop>
-                  <stop stop-color="#557BDE" offset="62.11%"></stop>
-                  <stop stop-color="#7472E2" offset="86.43%"></stop>
-                  <stop stop-color="#806EE3" offset="100%"></stop>
+                  <stop stopColor="#0095D5" offset="9.677%"></stop>
+                  <stop stopColor="#238AD9" offset="30.07%"></stop>
+                  <stop stopColor="#557BDE" offset="62.11%"></stop>
+                  <stop stopColor="#7472E2" offset="86.43%"></stop>
+                  <stop stopColor="#806EE3" offset="100%"></stop>
                 </linearGradient>
                 <linearGradient
                   x1="13.9840532%"
@@ -555,10 +553,10 @@ const Skills = () => {
                   y2="-13.5538462%"
                   id="linearGradient-2"
                 >
-                  <stop stop-color="#0095D5" offset="11.83%"></stop>
-                  <stop stop-color="#3C83DC" offset="41.78%"></stop>
-                  <stop stop-color="#6D74E1" offset="69.62%"></stop>
-                  <stop stop-color="#806EE3" offset="83.33%"></stop>
+                  <stop stopColor="#0095D5" offset="11.83%"></stop>
+                  <stop stopColor="#3C83DC" offset="41.78%"></stop>
+                  <stop stopColor="#6D74E1" offset="69.62%"></stop>
+                  <stop stopColor="#806EE3" offset="83.33%"></stop>
                 </linearGradient>
                 <linearGradient
                   x1="-16.8361667%"
@@ -567,12 +565,12 @@ const Skills = () => {
                   y2="-1.11566667%"
                   id="linearGradient-3"
                 >
-                  <stop stop-color="#C757BC" offset="10.75%"></stop>
-                  <stop stop-color="#D0609A" offset="21.38%"></stop>
-                  <stop stop-color="#E1725C" offset="42.54%"></stop>
-                  <stop stop-color="#EE7E2F" offset="60.48%"></stop>
-                  <stop stop-color="#F58613" offset="74.3%"></stop>
-                  <stop stop-color="#F88909" offset="82.32%"></stop>
+                  <stop stopColor="#C757BC" offset="10.75%"></stop>
+                  <stop stopColor="#D0609A" offset="21.38%"></stop>
+                  <stop stopColor="#E1725C" offset="42.54%"></stop>
+                  <stop stopColor="#EE7E2F" offset="60.48%"></stop>
+                  <stop stopColor="#F58613" offset="74.3%"></stop>
+                  <stop stopColor="#F88909" offset="82.32%"></stop>
                 </linearGradient>
               </defs>
               <g>
@@ -665,8 +663,8 @@ const Skills = () => {
               gradientTransform="translate(208.979 6.006)"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0" stop-color="#55adfd" />
-              <stop offset="1" stop-color="#438ffd" />
+              <stop offset="0" stopColor="#55adfd" />
+              <stop offset="1" stopColor="#438ffd" />
             </linearGradient>
             <path
               fill="url(#pg10I3OeSC0NOv22QZ6aWa)"
@@ -674,21 +672,21 @@ const Skills = () => {
             />
             <path
               fill="#fff"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M15.999,18.001v2.999	h17.002v-2.999H15.999z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
             <path
               fill="#fff"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M16.001,24.001v2.999	h17.002v-2.999H16.001z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
             <path
               fill="#fff"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M15.999,30.001v2.999	h12.001v-2.999H15.999z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
             <linearGradient
               id="pg10I3OeSC0NOv22QZ6aWb"
@@ -699,8 +697,8 @@ const Skills = () => {
               gradientTransform="translate(234.385 12.109)"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0" stop-color="#427fdb" />
-              <stop offset="1" stop-color="#0c52bb" />
+              <stop offset="0" stopColor="#427fdb" />
+              <stop offset="1" stopColor="#0c52bb" />
             </linearGradient>
             <path
               fill="url(#pg10I3OeSC0NOv22QZ6aWb)"
