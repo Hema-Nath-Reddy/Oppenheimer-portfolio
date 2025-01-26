@@ -370,11 +370,12 @@ h4 {
   height: min-content;
   width: min-content;
   background-color: transparent;
-  bottom: 1%;
+  bottom: 2%;
   right: 1%;
   fill: #ffffc7;
 }
 .sound svg {
+  width: 2vw;
   cursor: pointer;
 }
 

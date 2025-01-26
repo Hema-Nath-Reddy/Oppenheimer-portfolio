@@ -1,10 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import axios from "axios";
 const ContactMe = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [number, setNumber] = useState("");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -17,31 +14,37 @@ const ContactMe = () => {
     message: false,
     number: false,
   });
-  useEffect(() => {
-    if (form.name || form.email || form.message || form.number) {
-      console.log(form);
-    }
-  }, [form]);
   const handleNameInput = (e) => {
     let namex = /^[a-zA-Z\s]+$/;
-    setName(e.target.value);
+
+    setForm((prevState) => ({
+      ...prevState,
+      name: e.target.value,
+    }));
     setError((prevState) => ({
       ...prevState,
-      name: !namex.test(name),
+      name: !namex.test(form.name),
     }));
   };
 
   const handleEmailInput = (e) => {
     let emailx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    setEmail(e.target.value);
+    setForm((prevState) => ({
+      ...prevState,
+      email: e.target.value,
+    }));
     setError((prevState) => ({
       ...prevState,
-      email: !emailx.test(email),
+      email: !emailx.test(form.email),
     }));
+    console.log(error);
   };
 
   const handleNumberInput = (e) => {
-    setNumber(e.target.value);
+    setForm((prevState) => ({
+      ...prevState,
+      number: e.target.value,
+    }));
     setError((prevState) => ({
       ...prevState,
       number: number.length === 10,
@@ -50,18 +53,21 @@ const ContactMe = () => {
 
   const handleMessageInput = (e) => {
     let messagex = /^[a-zA-Z\s]+$/;
-    setMessage(e.target.value);
+    setForm((prevState) => ({
+      ...prevState,
+      message: e.target.value,
+    }));
     setError((prevState) => ({
       ...prevState,
-      message: !messagex.test(message),
+      message: !messagex.test(form.message),
     }));
   };
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const newErrors = {
-      name: name === "",
-      email: email === "",
-      message: message === "",
-      number: number === "",
+      name: form.name === "",
+      email: form.email === "",
+      message: form.message === "",
+      number: form.number === "",
     };
 
     if (Object.values(newErrors).includes(true)) {
@@ -78,18 +84,31 @@ const ContactMe = () => {
       setError({ name: true, email: true, message: true, number: true });
       return;
     }
-    setForm({ name, email, message, number });
+
+    try {
+      const response = await axios.post("/api/contact", form);
+      // Check status code
+      if (response.status === 200) {
+        alert("Your details have been successfully saved.");
+      } else {
+        alert("Failed to save your details. Please try again.");
+      }
+    } catch (error) {
+      console.error("Axios Error: ", error.response || error.message);
+      alert("There was a problem with the request. Please try again later.");
+    }
     setError({
       name: false,
       email: false,
       message: false,
       number: false,
     });
-
-    setName("");
-    setEmail("");
-    setMessage("");
-    setNumber("");
+    setForm({
+      name: "",
+      email: "",
+      message: "",
+      number: "",
+    });
   };
 
   return (
@@ -103,7 +122,7 @@ const ContactMe = () => {
             placeholder="Enter your name"
             autoComplete="name"
             spellCheck="false"
-            value={name}
+            value={form.name}
             onChange={handleNameInput}
           />
           {error.name && (
@@ -141,7 +160,7 @@ const ContactMe = () => {
             id="email"
             placeholder="Enter your email"
             autoComplete="email"
-            value={email}
+            value={form.email}
             onChange={handleEmailInput}
           />
           {error.email && (
@@ -179,7 +198,7 @@ const ContactMe = () => {
             id="number"
             placeholder="Enter your number"
             autoComplete="tel"
-            value={number}
+            value={form.number}
             onChange={handleNumberInput}
           />
           {error.number && (
@@ -217,7 +236,7 @@ const ContactMe = () => {
             placeholder="Enter your message"
             autoComplete="off"
             spellCheck="true"
-            value={message}
+            value={form.message}
             onChange={handleMessageInput}
           ></textarea>
           {error.message && (
@@ -251,12 +270,12 @@ const ContactMe = () => {
         <button className="btn" onClick={handleSubmit}>
           Submit
         </button>
-        {name === "" && email === "" && message === "" && number === "" && (
+        {/* {name === "" && email === "" && message === "" && number === "" && (
           <div className="success">
             <p>Your details have been succesfully saved.</p>
             <div className="loading"></div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
