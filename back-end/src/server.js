@@ -5,6 +5,7 @@ const app = express();
 const PORT = 8000;
 app.use(express.json());
 let db;
+
 async function connectToDB() {
   const uri = "mongodb://127.0.0.1:27017";
 
@@ -17,22 +18,39 @@ async function connectToDB() {
       },
     });
 
-    // Connect to the MongoDB server
     await client.connect();
 
     console.log("Connected to the database");
 
-     db = client.db("portfolio");
+    db = client.db("portfolio");
   } catch (error) {
     console.error("Error connecting to MongoDB:", error);
   }
 }
-
 app.post("/api/contact", async (req, res) => {
   try {
     const { name, email, number, message } = req.body;
-    const user = { name, email, number, message };
-    const result = await db.collection("user").insertOne(user);
+    const currentDate = new Date();
+
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+    const date = String(currentDate.getDate()).padStart(2, "0");
+
+    const hours = String(currentDate.getHours()).padStart(2, "0");
+    const minutes = String(currentDate.getMinutes()).padStart(2, "0");
+    const seconds = String(currentDate.getSeconds()).padStart(2, "0");
+
+    const formattedDateTime = `${date}-${month}-${year} ${hours}:${minutes}:${seconds}`;
+
+    const user = {
+      name,
+      email,
+      number,
+      message,
+      submittedAt: formattedDateTime,
+    };
+
+    const result = await db.collection("users").insertOne(user);
     if (result.acknowledged) {
       res.status(200).json({
         message: "Your details have been successfully saved.",
@@ -51,7 +69,7 @@ app.post("/api/contact", async (req, res) => {
 });
 async function start() {
   try {
-    await connectToDB(); // Ensure DB is connected before starting the server
+    await connectToDB();
     app.listen(PORT, function () {
       console.log("Server is listening on port " + PORT);
     });

@@ -14,6 +14,8 @@ const ContactMe = () => {
     message: false,
     number: false,
   });
+  const [visible, setVisible] = useState(false);
+  const [res, setRes] = useState("");
   const handleNameInput = (e) => {
     let namex = /^[a-zA-Z\s]+$/;
 
@@ -84,19 +86,21 @@ const ContactMe = () => {
       setError({ name: true, email: true, message: true, number: true });
       return;
     }
-
     try {
       const response = await axios.post("/api/contact", form);
-      // Check status code
       if (response.status === 200) {
-        alert("Your details have been successfully saved.");
+        setRes("Your details have been successfully saved.");
       } else {
-        alert("Failed to save your details. Please try again.");
+        setRes("Failed to save your details. Please try again.");
       }
     } catch (error) {
-      console.error("Axios Error: ", error.response || error.message);
-      alert("There was a problem with the request. Please try again later.");
+      setRes("Failed to save your details. Please try again.");
     }
+    setVisible(true);
+    setTimeout(() => {
+      setVisible(false);
+    }, 5000);
+
     setError({
       name: false,
       email: false,
@@ -270,12 +274,12 @@ const ContactMe = () => {
         <button className="btn" onClick={handleSubmit}>
           Submit
         </button>
-        {/* {name === "" && email === "" && message === "" && number === "" && (
+        {visible && (
           <div className="success">
-            <p>Your details have been succesfully saved.</p>
+            <p>{res}</p>
             <div className="loading"></div>
           </div>
-        )} */}
+        )}
       </div>
     </div>
   );
