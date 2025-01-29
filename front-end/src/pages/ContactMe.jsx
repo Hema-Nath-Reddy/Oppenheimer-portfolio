@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { use } from "react";
 const ContactMe = () => {
   const [form, setForm] = useState({
     name: "",
@@ -88,10 +89,18 @@ const ContactMe = () => {
     }
     try {
       const response = await axios.post("/api/contact", form);
-      if (response.status === 200) {
-        setRes("Your details have been successfully saved.");
-      } else {
+      const eid = response.data.eid;
+      if (eid === 1) {
+        setRes("Your name is already with me.");
+      } else if (eid === 2) {
+        setRes("Your email is already with me.");
+      } else if (eid === 3) {
+        setRes("Your number is already with me.");
+      } else if (eid === 4) {
         setRes("Failed to save your details. Please try again.");
+      }
+      if (eid == 9) {
+        setRes("Your details have been sucessfully saved.");
       }
     } catch (error) {
       setRes("Failed to save your details. Please try again.");

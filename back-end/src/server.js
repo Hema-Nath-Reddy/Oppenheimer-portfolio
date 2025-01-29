@@ -1,10 +1,17 @@
 import express from "express";
 import { MongoClient, ReturnDocument, ServerApiVersion } from "mongodb";
+import fs from "fs";
+import { fileURLToPath } from "url";
+import path from "path";
 const app = express();
 
 const PORT = 8000;
 app.use(express.json());
 let db;
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 async function connectToDB() {
   const uri = "mongodb://127.0.0.1:27017";
@@ -27,20 +34,41 @@ async function connectToDB() {
     console.error("Error connecting to MongoDB:", error);
   }
 }
+
 app.post("/api/contact", async (req, res) => {
   try {
     const { name, email, number, message } = req.body;
-    const currentDate = new Date();
+    const existingUser = await db.collection("users").findOne({
+      $or: [{ name }, { email }, { number }],
+    });
 
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
-    const date = String(currentDate.getDate()).padStart(2, "0");
+    if (existingUser) {
+      if (existingUser.name === name) {
+        return res.status(400).json({ message: "Name already exists", eid: 1 });
+      }
+      if (existingUser.email === email) {
+        return res
+          .status(400)
+          .json({ message: "Email already exists", eid: 2 });
+      }
+      if (existingUser.number === number) {
+        return res
+          .status(400)
+          .json({ message: "Phone number already exists", eid: 3 });
+      }
+    }
 
-    const hours = String(currentDate.getHours()).padStart(2, "0");
-    const minutes = String(currentDate.getMinutes()).padStart(2, "0");
-    const seconds = String(currentDate.getSeconds()).padStart(2, "0");
-
-    const formattedDateTime = `${date}-${month}-${year} ${hours}:${minutes}:${seconds}`;
+    const formattedDateTime = new Date()
+      .toLocaleString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      })
+      .replace(",", "");
 
     const user = {
       name,
@@ -51,22 +79,26 @@ app.post("/api/contact", async (req, res) => {
     };
 
     const result = await db.collection("users").insertOne(user);
+
     if (result.acknowledged) {
-      res.status(200).json({
+      return res.status(200).json({
         message: "Your details have been successfully saved.",
-      });
-    } else {
-      res.status(500).json({
-        message: "Faild to store your details. Try after some time",
+        eid: 9,
       });
     }
+    res.status(500).json({
+      message: "Failed to store your details. Try again later.",
+      eid: 4,
+    });
   } catch (e) {
     console.error("Error inserting user:", e);
     res.status(500).json({
-      message: "There seems to be some problem.Try after some time",
+      message: "There seems to be some problem. Try again later.",
+      eid: 5,
     });
   }
 });
+
 async function start() {
   try {
     await connectToDB();
