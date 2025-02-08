@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import ParticleAnimation from "./ParticleAnimation";
-import audio from "./assets/song.mp3";
+import audioFile from "./assets/song.mp3";
 
 const NavBar = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [clicked, setClicked] = useState(false);
+  const audioRef = useRef(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -16,6 +17,35 @@ const NavBar = () => {
       setIsFullscreen(false);
     }
   };
+  const toggleMusic = () => {
+    setClicked((prev) => !prev);
+
+    if (audioRef.current) {
+      if (!clicked) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  };
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.ctrlKey) {
+        if (event.code === "Space") {
+          toggleMusic();
+        } else if (event.key.toLowerCase() === "f") {
+          toggleFullscreen();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [toggleFullscreen, toggleMusic]);
+
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
   };
@@ -108,7 +138,7 @@ const NavBar = () => {
 
   return (
     <>
-      <audio src={audio} loop></audio>
+      <audio ref={audioRef} src={audioFile} loop></audio>
       <nav>
         <div className="name">
           <h1>HEMA NATH REDDY Y</h1>
@@ -156,18 +186,7 @@ const NavBar = () => {
         )}
       </button>
 
-      <button
-        className="sound"
-        onClick={() => {
-          setClicked(!clicked);
-          const audio = document.querySelector("audio");
-          if (clicked) {
-            audio.pause();
-          } else {
-            audio.play();
-          }
-        }}
-      >
+      <button className="sound" onClick={toggleMusic}>
         {clicked ? (
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM224 192l0 128c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-128c0-17.7 14.3-32 32-32s32 14.3 32 32zm128 0l0 128c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-128c0-17.7 14.3-32 32-32s32 14.3 32 32z" />
