@@ -362,7 +362,8 @@ h4 {
 .content button {
   width: 50%;
 }
-.sound {
+.sound,
+.screen {
   position: absolute;
   z-index: 999;
   border-radius: 50%;
@@ -374,7 +375,10 @@ h4 {
   right: 1%;
   fill: #ffffc7;
 }
-.sound svg {
+.screen{
+  top: 2%;
+}
+.sound svg,.screen svg{
   width: 2vw;
   cursor: pointer;
 }
