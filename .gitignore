@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+QR-gen/.env
+.gitignore
+local/.env
+crud-op/.env
+QR-gen/back-end/.env
+crud-fullstack/backend/.env
