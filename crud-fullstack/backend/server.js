@@ -1,15 +1,19 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const app = express();
 require("dotenv").config();
+
+const app = express();
 app.use(express.json());
 app.use(cors());
 
 mongoose
-  .connect(process.env.MONGO_URI, {})
-  .then(() => console.log("connected"))
-  .catch((e) => console.log("Error", e));
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 const ItemSchema = new mongoose.Schema({
   name: String,
@@ -18,19 +22,22 @@ const ItemSchema = new mongoose.Schema({
 
 const ItemModel = mongoose.model("Item", ItemSchema);
 
-app.post("/api/item", async (req, res) => {
+// CREATE
+app.post("/items", async (req, res) => {
   const { name, description } = req.body;
   const newItem = new ItemModel({ name, description });
   await newItem.save();
   res.json(newItem);
 });
 
-app.get("/api/items", async (req, res) => {
+// READ
+app.get("/items", async (req, res) => {
   const items = await ItemModel.find();
   res.json(items);
 });
 
-app.put("/api/items:id", async (req, res) => {
+// UPDATE
+app.put("/items/:id", async (req, res) => {
   const { name, description } = req.body;
   const updatedItem = await ItemModel.findByIdAndUpdate(
     req.params.id,
@@ -40,11 +47,10 @@ app.put("/api/items:id", async (req, res) => {
   res.json(updatedItem);
 });
 
-app.delete("/api/items:id", async (req, res) => {
-  const deletedItem = await ItemModel.findByIdAndDelete(req.params.id);
-  res.json(deletedItem);
+// DELETE
+app.delete("/items/:id", async (req, res) => {
+  await ItemModel.findByIdAndDelete(req.params.id);
+  res.json({ message: "Item deleted successfully" });
 });
 
-app.listen(5000, () => {
-  console.log("Server is running on port 5000.");
-});
+app.listen(5000, () => console.log("Server running on port 5000"));
