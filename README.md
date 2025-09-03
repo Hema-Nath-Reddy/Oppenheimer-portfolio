@@ -32,8 +32,8 @@ cd verdex</code></pre>
   </li>
   <li>
     Install dependencies for both frontend and backend
-    <pre><code>cd back-end && npm install
-cd server && npm install</code></pre>
+    <pre><code>cd front-end && npm install
+cd back-end && npm install</code></pre>
   </li>
   <li>
     Start backend server
