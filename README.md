@@ -28,7 +28,7 @@
   <li>
     Clone the repo
     <pre><code>git clone https://github.com/Hema-Nath-Reddy/Oppenheimer-portfolio.git
-cd verdex</code></pre>
+cd foldername</code></pre>
   </li>
   <li>
     Install dependencies for both frontend and backend
